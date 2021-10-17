@@ -16,10 +16,10 @@ const refs = {
 refs.textInput.addEventListener('input', debounce(findCountry, 500));
 
 function findCountry() {
-  // console.log(refs.textInput.value);
-  // if (!refs.textInput.value.length) {
-  //   return
-  // }
+  console.log(refs.textInput.value);
+  if (!refs.textInput.value.length) {
+    return
+  }
   if (refs.textInput.value !== '') {
     fetchQuery(refs.textInput.value).then(renderCountry).catch(console.error());
   }
