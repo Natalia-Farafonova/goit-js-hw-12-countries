@@ -2,6 +2,11 @@ body {
   font-family: sans-serif;
 }
 
+img {
+  width: 180px;
+  height: 125px;
+}
+
 .input {
   display: block;
   margin: 40px auto;
@@ -24,4 +29,15 @@ body {
   border-radius: 20px;
   height: 350px;
   opacity: 0.6;
+}
+
+.country {
+  display: flex;
+  padding: 15px;
+  background: white;
+}
+
+.country-flag {
+  width: 180px;
+  height: 180;
 }
