@@ -29,34 +29,34 @@ function findCountry(e) {
 
 function searchCountry(value) {
     api.fetchCountry(value).then(country => {
-
         if (!country) {
             return;
-        } else if (country.length > 10) {
-
+        }
+        else if (country.length > 10) {
             clearMarkup();
             const message = "Too many matches found. Please enter a more specific query! "
             pnotify({
                 title: 'Error',
                 text: message,
-                delay: 1000,
+                delay: 500,
             });
-        } else if (country.length >= 2 && country.length <= 10) {
-            createCountryList(country);
-        } else if (country.length === 1) {
-            onStyleCountry();
-            createMarkup(country);
-        } else {
+        }else if (country.length >= 2 && country.length <= 10) {
+                createCountryList(country);
+        }
+        else if (country.length === 1) {
+                onStyleCountry();
+                createMarkup(country);
+        }
+        else {
             pnotify({
                 title: 'Error',
                 text: 'Invalid request or such countries are not in the list',
-                delay: 1000,
+                delay: 500,
             });
         }
     }).catch(error => {
         onError();
     })
-    
 }
 
 function onError(){
@@ -73,12 +73,12 @@ function onStyleCountry() {
 }
 
 function createMarkup (country){
-  const markup = markupCountry(country);
+  const markup = countryTamplate(country);
   refs.markup.innerHTML = markup;
 }
 
 function createCountryList(list) {
-    const markup = countryList(list);
+    const markup = countrysTamplate(list);
      refs.markup.innerHTML = markup;
 }
 
@@ -89,9 +89,3 @@ function clearMarkup(){
 function onReset() {
     refs.markupCountry.classList.remove('opacity');
 }
-
-
-
-
-
-
